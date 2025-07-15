@@ -205,7 +205,7 @@
                             <span>Node.js</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn btn-small">Case Study</a>
+                            <a href="project.html?id=api-automation" class="btn btn-small">Case Study</a>
                             <a href="#" class="btn btn-small btn-outline">GitHub</a>
                         </div>
                     </div>
@@ -223,7 +223,7 @@
                             <span>Azure DevOps</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn btn-small">Case Study</a>
+                            <a href="project.html?id=selenium-framework" class="btn btn-small">Case Study</a>
                             <a href="#" class="btn btn-small btn-outline">GitHub</a>
                         </div>
                     </div>
@@ -241,7 +241,7 @@
                             <span>Analytics</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn btn-small">Demo</a>
+                            <a href="project.html?id=test-reporting" class="btn btn-small">Demo</a>
                             <a href="#" class="btn btn-small btn-outline">Documentation</a>
                         </div>
                     </div>
@@ -307,21 +307,27 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
+                    <form id="contactForm" method="POST" class="contact-form">
                         <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
+                            <input type="text" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
+                            <input type="email" name="email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
+                            <input type="text" name="subject" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
+                        <input type="hidden" name="_subject" value="Contact Us from Portfolio Website">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_captcha" value="false">
                         <button type="submit" class="btn btn-primary">Send Message</button>
                     </form>
+                    <div id="thankYouMessage" style="display:none; text-align:center; padding:2rem 0; font-size:1.2rem; color:var(--primary-color); font-weight:600;">
+                        Thanks for reaching out, I'll connect with you soon.
+                    </div>
                 </div>
             </div>
         </div>
@@ -341,5 +347,34 @@
     </button>
 
     <script src="script.js"></script>
+    <script>
+        // AJAX Formsubmit integration for thank you message
+        const contactForm = document.getElementById('contactForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(contactForm);
+                fetch('https://formsubmit.co/ajax/anmolgupta02@gmail.com', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if (response.ok) {
+                        contactForm.style.display = 'none';
+                        thankYouMessage.style.display = 'block';
+                    } else {
+                        alert('There was an error sending your message. Please try again later.');
+                    }
+                })
+                .catch(() => {
+                    alert('There was an error sending your message. Please try again later.');
+                });
+            });
+        }
+    </script>
 </body>
 </html>     
