@@ -3,105 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Case Study | Anmol Gupta</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta name="description" content="QA and Quality Engineering case study by Anmol Gupta.">
+    <title>Case Study | Anmol Gupta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Anmol</h2>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html#home" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="index.html#skills" class="nav-link">Skills</a></li>
-                <li class="nav-item"><a href="index.html#projects" class="nav-link">Projects</a></li>
-                <li class="nav-item"><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
-                <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
-
-    <main class="container" style="margin-top:100px; margin-bottom:60px;">
-        <div id="project-content">
-            <!-- Project content will be injected here -->
-        </div>
-    </main>
-
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Anmol Gupta. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Floating Theme Toggle -->
-    <button class="floating-theme-toggle" id="theme-toggle">
-        <i class="fas fa-sun light-icon"></i>
-        <i class="fas fa-moon dark-icon"></i>
-    </button>
-
+    <header class="site-header"><nav class="nav-shell" aria-label="Primary navigation"><a class="brand" href="index.html" aria-label="Anmol Gupta, home">AG<span>.</span></a><a class="nav-cta" href="index.html#contact">Let's talk <i class="fa-solid fa-arrow-up-right-from-square"></i></a></nav></header>
+    <main class="case-study section-shell" id="caseStudy"></main>
+    <footer class="site-footer section-shell"><p>© <span id="currentYear"></span> Anmol Gupta</p><p>Quality Engineering · QA Architecture · AI-Assisted Testing</p><a href="index.html">Portfolio <i class="fa-solid fa-arrow-left"></i></a></footer>
     <script src="script.js"></script>
     <script>
-    // Project data (add real content later)
-    const projects = {
-        "api-automation": {
-            title: "API Automation with Newman",
-            paragraphs: [
-                "This project demonstrates data-driven API automation for 5,000+ dataset validations using Postman and Newman.",
-                "Features include dynamic bearer token refresh, CSV-based test data, automated assertions, and integrated HTML reporting.",
-                "The solution reduced manual regression time from 15+ hours to ~30 minutes and enabled CI/CD integration."
-            ]
-        },
-        "selenium-framework": {
-            title: "Selenium Framework with Azure DevOps",
-            paragraphs: [
-                "A plug-and-play Selenium automation framework built with Java, TestNG, and Cucumber BDD.",
-                "Integrated with Azure DevOps for CI/CD, supporting cross-browser testing and HTML reporting.",
-                "Helped teams reduce manual regression effort by 60% and enabled rapid test feedback cycles."
-            ]
-        },
-        "test-reporting": {
-            title: "Test Reporting & Analytics",
-            paragraphs: [
-                "Integrated test reporting solutions using Allure Reports and custom dashboards.",
-                "Automated test metrics, failure analysis, and made test coverage visible to developers and stakeholders.",
-                "Improved transparency and confidence in test results across the organization."
-            ]
-        }
-    };
-
-    // Get project id from URL
-    function getProjectId() {
-        const params = new URLSearchParams(window.location.search);
-        return params.get('id');
-    }
-
-    // Render project content
-    function renderProject() {
-        const id = getProjectId();
-        const container = document.getElementById('project-content');
-        if (id && projects[id]) {
-            const project = projects[id];
-            let html = `<h1 class='section-title'>${project.title}</h1>`;
-            project.paragraphs.forEach(p => {
-                html += `<p>${p}</p>`;
-            });
-            container.innerHTML = html;
+        const projects = {
+            'ai-qa-platform': { label:'01 / AI-ASSISTED QUALITY ENGINEERING', title:'AI-Assisted QA Engineering Platform', summary:'A quality-engineering workflow that uses AI to accelerate work while keeping engineering review and validation in control.', challenge:'Testing work can become fragmented when requirements, planning, generation, execution, and analysis live in separate steps and tools.', approach:['Connect the workflow from requirements to test planning, test generation, and Playwright generation.','Keep review as an explicit quality checkpoint before execution.','Use AI-assisted failure analysis and healing as inputs to validation, not automatic truth.','Close the loop with validation and reporting.'], tools:['Requirements-to-test workflows','Playwright generation','Failure analysis','Human review'], outcome:'A clear model for applying AI to QA engineering without replacing engineering judgement.' },
+            'qa-interview-hub': { label:'02 / QA KNOWLEDGE SYSTEM', title:'QA Interview Hub', summary:'A structured QA knowledge and interviewer platform for consistent preparation, interviewing, and evaluation.', challenge:'Interview quality can vary when question depth, follow-ups, evaluation criteria, and candidate evidence are not organized in one system.', approach:['Organize question banks from beginner through senior levels across manual, API, SQL, automation, Agile, mobile, and scenario topics.','Pair questions with follow-ups, expected talking points, red flags, and scoring rubrics.','Support interview mode, candidate evaluation, and resume-driven questioning.','Create a foundation for future AI-assisted question generation and evaluation.'], tools:['Question banks','Scoring rubrics','Interview mode','Knowledge system'], outcome:'A reusable QA interviewing workflow built around structure and consistent evaluation.' },
+            'test-case-planner': { label:'03 / QA WORKFLOW TOOLING', title:'Test Case Allocation Planner', summary:'A lightweight browser-based tool for improving release test-case assignment and tracking.', challenge:'Release planning is harder to coordinate when assignment, workload, expected completion, and batch status are spread across disconnected views.', approach:['Support test-case allocation with assignee filtering.','Track release and batch context alongside expected completion dates.','Make workload visible for quicker planning conversations.','Keep the workflow local and browser-based for lightweight access.'], tools:['Allocation','Release tracking','Workload visibility','Browser-based workflow'], outcome:'A focused planning workflow for clearer ownership and release-test coordination.' },
+            'api-automation': { label:'04 / API AUTOMATION', title:'API Automation Framework', summary:'A data-driven API validation approach using Postman, Newman, and Node.js.', challenge:'API regression work needs repeatable validation that can handle data variation, authentication, assertions, and execution reporting.', approach:['Model reusable Postman collections around API behaviour.','Use Newman and Node.js to support repeatable automated execution.','Apply data-driven validation with CSV and JSON inputs.','Include dynamic token handling, automated assertions, and report-ready output.'], tools:['Postman','Newman','Node.js','CSV / JSON'], outcome:'A maintainable API automation foundation designed for repeatable validation.' },
+            'selenium-framework': { label:'05 / WEB AUTOMATION', title:'Selenium Automation Framework', summary:'A Java-based UI automation framework structured for readable, repeatable execution.', challenge:'UI coverage needs a framework that supports maintainability, business-readable scenarios, and regular execution across browsers.', approach:['Use Java, Selenium, TestNG, Cucumber, and Maven for framework structure.','Keep test intent distinct from reusable UI interactions.','Support cross-browser automation.','Connect execution to Azure DevOps for CI/CD feedback.'], tools:['Java','Selenium','TestNG','Cucumber','Maven','Azure DevOps'], outcome:'A structured UI automation foundation for ongoing regression coverage.' },
+            'test-reporting': { label:'06 / QUALITY INSIGHTS', title:'Test Reporting & Analytics', summary:'Reporting and analytics designed to make test outcomes more useful in quality conversations.', challenge:'Raw execution output does not always make test health, failure context, and quality risk clear to a wider delivery team.', approach:['Use Allure and HTML reporting for accessible execution results.','Capture metrics and organize failure analysis.','Present test outcomes as a practical input to release and quality discussions.'], tools:['Allure','HTML reports','Metrics','Failure analysis'], outcome:'A clearer reporting layer for understanding test outcomes and quality signals.' }
+        };
+        const project = projects[new URLSearchParams(window.location.search).get('id')];
+        const root = document.querySelector('#caseStudy');
+        if (!project) {
+            root.innerHTML = '<p class="section-kicker">CASE STUDY NOT FOUND</p><h1>That project is not available.</h1><a class="button button-dark" href="index.html#work">Return to projects</a>';
         } else {
-            container.innerHTML = `<h1 class='section-title'>Project Not Found</h1><p>The project you are looking for does not exist.</p>`;
+            document.title = `${project.title} | Anmol Gupta`;
+            root.innerHTML = `<a class="back-link" href="index.html#work"><i class="fa-solid fa-arrow-left"></i> Featured projects</a><p class="section-kicker">${project.label}</p><h1>${project.title}</h1><p class="case-summary">${project.summary}</p><div class="case-grid"><div><p class="case-label">THE CHALLENGE</p><p>${project.challenge}</p></div><div><p class="case-label">FOCUS AREAS</p><div class="project-tags">${project.tools.map(tool => `<span>${tool}</span>`).join('')}</div></div></div><section class="case-approach"><p class="case-label">THE APPROACH</p><ol>${project.approach.map(item => `<li>${item}</li>`).join('')}</ol></section><section class="case-outcome"><p class="case-label">PROJECT FOCUS</p><p>${project.outcome}</p></section><p class="case-note">Details are intentionally high-level to respect project confidentiality.</p>`;
         }
-    }
-
-    document.addEventListener('DOMContentLoaded', renderProject);
     </script>
 </body>
-</html> 
+</html>
